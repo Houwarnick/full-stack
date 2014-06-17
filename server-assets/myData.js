@@ -13,11 +13,11 @@ var me = {name: 'Houston', height:'5ft10in', age:'29', favMovie:'Kung Fu Hustle'
 
 //getters
 module.exports.getFamily = function (){
-	return friends;
+	return family;
 }
 
 module.exports.getFriends = function (){
-	return family;
+	return friends;
 }
 
 module.exports.getHobbies = function (){
@@ -34,13 +34,13 @@ module.exports.addFamily = function(newFamily){
 }
 
 module.exports.addFriends = function(newFriend){
-	family.push(newFriend);
+	friends.push(newFriend);
 }
 
 module.exports.addHobby = function(newHobby){
-	family.push(newHobby);
+	hobbies.push(newHobby);
 }
 
 module.exports.addMe = function(newMe){
-	family.push(newMe);
+	me.favShow = newMe;
 }

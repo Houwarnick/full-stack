@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html ng-app="full-stack">
+<head>
+  <link rel="stylesheet" type="text/css" href="Styles/style.css">
+  <link href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body ng-controller="myCtrl">
+
+  <div class="Family">
+    <input ng-model="famName" placeholder="Enter a new family name"></input>
+    <input ng-model="famAge" placeholder="Enter a new family age"></input>
+    <input ng-model="famRelation" placeholder="Enter a family relation"></input>
+    <button class="btn" ng-click="setFamily(famName, famAge, famRelation)">Set Family</button>
+    <button class="btn" ng-click="getData('http://localhost:8989/family')">Get Family</button>
+    <ul ng-repeat="person in family">
+    	<li>{{person.name}}, {{person.age}}, {{person.relation}}</li>
+    </ul>
+  </div>
+
+  <div class="Friends">
+  	<input ng-model="friName" placeholder="Enter a new friend name"></input>
+    <input ng-model="friAge" placeholder="Enter a new friend age"></input>
+    <input ng-model="friMet" placeholder="Enter where you met"></input>
+    <button class="btn" ng-click="setFriends(friName, friAge, friMet)">Set Friends</button>
+    <button class="btn" ng-click="getData('http://localhost:8989/friends')">Get Friends</button>
+  	<ul ng-repeat="person in friends">
+    	<li>{{person.name}}, {{person.age}}, met in: {{person.met}}</li>
+    </ul>
+  </div>
+
+  <div class="Hobbies">
+  	<input ng-model="newHobby" placeholder="Enter a new hobby"></input>
+
+    <button class="btn" ng-click="setHobby(newHobby)">Set Hobbies</button>
+  	<button class="btn" ng-click="getData('http://localhost:8989/hobbies')">Get Hobbies</button>
+  	
+  	<ul ng-repeat="item in hobbies track by $index">
+    	<li>{{item}}</li>
+    </ul>
+  </div>
+
+  <div class="Me">
+  	<button class="btn" ng-click="getData('http://localhost:8989/me')">Get Me!</button>
+  	<ul ng-repeat="(key, value) in me">
+    	<li>{{key}}: {{value}}</li>
+    </ul>
+  </div>	
+
+  <button class="btn" ng-click="clearData()">Clear Data</button>
+
+
+
+
+  <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.17/angular.min.js"></script>
+  <script src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.min.js"></script>
+  <script src="js/app.js"></script>
+  <script src="js/myCtrl.js"></script>
+  <script src="js/myDirectives.js"></script>
+  <script src="js/myService.js"></script>
+  
+</body>	
+</html>
